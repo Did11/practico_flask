@@ -1,0 +1,60 @@
+Usermethodview
+get,post,put,delete
+
+
+def get
+def post
+
+
+app = flask(_main_)
+
+db = sqlamlchemy = es una instancia que recibe app
+
+marshmallow = recibe toda la app 
+
+migrate = recibe app y db. cuando hacemos migrate va a llamar a los modelos que estan en el directorio. 
+si queremos traer otros modelos, debemos importarlos
+
+
+instanciamos asi porque sino cada vez  que llamamos
+class user (sqlamlchemy(app))
+    nombre = db.blabla
+
+
+a models lo llevamos a init a traves de views para que acceda el migrate
+
+
+carpeta models> el models.py, el init
+schemes> el schemes.pu, el init
+views> el vies.pu, 
+
+
+users> models.py, schemes.py,view.py. 
+publicaciones > models.py, schemes.py,view.py. 
+
+dentro de las vistas idealmente se deberia llamar a un repositorio. la vista lo que hace es llamar al repositorio. 
+
+
+ejemplo sistematico
+primero hago el modelo 
+class user(dn.model)
+    nombre = db.strig(150)
+    apellido = db.string(150)
+
+luego hago la vista app.route('/user')
+
+
+def user():
+    users = user.query.all()
+    user_schema = userschema().dump(users, many=true)
+    return users
+
+
+y aca decimos, para que sirve los esquemas?
+generamos uno
+
+userschemas(ma.schema):
+nombre: matias
+apellido: -
+
+primero modelo, despues esquemas y despues vistas.
