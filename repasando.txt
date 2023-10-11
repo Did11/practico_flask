@@ -58,3 +58,6 @@ nombre: matias
 apellido: -
 
 primero modelo, despues esquemas y despues vistas.
+
+
+agregar al readme los endpoints disponibles.
